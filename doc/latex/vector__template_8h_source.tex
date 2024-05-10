@@ -1,0 +1,361 @@
+\doxysection{vector\+\_\+template.\+h}
+\hypertarget{vector__template_8h_source}{}\label{vector__template_8h_source}\mbox{\hyperlink{vector__template_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ T}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{template_8h}{template.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }TEMPLATE(\_\_vector\_private,\ T)}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ T\ *\_\_data;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \_\_size;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \_\_allocated\_size;}
+\DoxyCodeLine{00028\ \}\ TEMPLATE(vector\_private,\ T);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }TEMPLATE(\_\_vector,\ T)\ TEMPLATE(vector,\ T);}
+\DoxyCodeLine{00031\ \textcolor{keyword}{struct\ }TEMPLATE(\_\_vector,\ T)}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ TEMPLATE(vector\_private,\ T)\ \_\_private;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ T\ (*at)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ int);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ T\ (*back)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ T\ *(*begin)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*capacity)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ void\ (*clear)(TEMPLATE(vector,\ T)\ **\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ T\ *(*data)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ void\ (*emplace)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ int,\ \textcolor{keyword}{const}\ T);\ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ int\ (*empty)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ T\ *(*end)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ void\ (*erase)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ int);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ T\ (*front)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ void\ (*insert)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ int,\ \textcolor{keyword}{const}\ T);\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ void\ (*pop\_back)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ void\ (*pop\_front)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ void\ (*print)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ void\ (*push\_back)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const},\ \textcolor{keyword}{const}\ T);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ void\ (*push\_front)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const},\ \textcolor{keyword}{const}\ T);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ void\ (*reserve)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ int);\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ void\ (*resize)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ int);\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*size)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{static}\ T\ TEMPLATE(at,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00058\ \textcolor{keyword}{static}\ T\ TEMPLATE(back,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00059\ \textcolor{keyword}{static}\ T\ *TEMPLATE(begin,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00060\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ TEMPLATE(capacity,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00061\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(clear,\ T)(TEMPLATE(vector,\ T)\ **\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00062\ \textcolor{keyword}{static}\ T\ *TEMPLATE(data,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00063\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(emplace,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index,\ \textcolor{keyword}{const}\ T\ value);}
+\DoxyCodeLine{00064\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ TEMPLATE(empty,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00065\ \textcolor{keyword}{static}\ T\ *TEMPLATE(end,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00066\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(erase,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00067\ \textcolor{keyword}{static}\ T\ TEMPLATE(front,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00068\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(insert,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ before,\ \textcolor{keyword}{const}\ T\ value);}
+\DoxyCodeLine{00069\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(pop\_back,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00070\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(pop\_front,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00071\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(print,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00072\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(push\_back,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ T\ value);}
+\DoxyCodeLine{00073\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(push\_front,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ T\ value);}
+\DoxyCodeLine{00074\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(reserve,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ res\_size);}
+\DoxyCodeLine{00075\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(resize,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00076\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ TEMPLATE(size,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ TEMPLATE(destruct\_vector,\ T)(TEMPLATE(vector,\ T)\ **self)}
+\DoxyCodeLine{00079\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*self)-\/>\_\_private.\_\_allocated\_size\ >\ 0)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ free((*self)-\/>\_\_private.\_\_data);}
+\DoxyCodeLine{00082\ \ \ \ \ free(*self);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ *self\ =\ NULL;}
+\DoxyCodeLine{00085\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ TEMPLATE(destruct\_vector\_with\_object,\ T)(TEMPLATE(vector,\ T)\ **self,\ void\ (*destruct\_object)(T**))}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i;\ i\ <\ (*self)-\/>\_\_private.\_\_allocated\_size;\ ++i)}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ destruct\_object((*self)-\/>\_\_private.\_\_data[i]);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*self)-\/>\_\_private.\_\_allocated\_size\ >\ 0)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ free((*self)-\/>\_\_private.\_\_data);}
+\DoxyCodeLine{00093\ \ \ \ \ free(*self);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ *self\ =\ NULL;}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ TEMPLATE(vector,\ T)\ *TEMPLATE(init\_vector,\ T)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ init\_size,\ \textcolor{keyword}{const}\ T\ init\_value)}
+\DoxyCodeLine{00099\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ TEMPLATE(vector,\ T)\ *new\_vector\ =\ (TEMPLATE(vector,\ T)*)malloc(\textcolor{keyword}{sizeof}(TEMPLATE(vector,\ T)));}
+\DoxyCodeLine{00101\ \ \ \ \ assert(new\_vector\ !=\ NULL\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ VECTOR\ ::\ Memory\ couldn't\ be\ allocated"{}});}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ new\_vector-\/>\_\_private.\_\_data\ =\ (T*)calloc(init\_size,\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00104\ \ \ \ \ assert(new\_vector-\/>\_\_private.\_\_data\ !=\ NULL\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ VECTOR\ ::\ Memory\ couldn't\ be\ allocated"{}});}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ new\_vector-\/>\_\_private.\_\_size\ =\ init\_size;}
+\DoxyCodeLine{00107\ \ \ \ \ new\_vector-\/>\_\_private.\_\_allocated\_size\ =\ init\_size;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ init\_size;\ ++i)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ new\_vector-\/>\_\_private.\_\_data[i]\ =\ init\_value;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ new\_vector-\/>at\ =\ TEMPLATE(at,\ T);}
+\DoxyCodeLine{00112\ \ \ \ \ new\_vector-\/>back\ =\ TEMPLATE(back,\ T);}
+\DoxyCodeLine{00113\ \ \ \ \ new\_vector-\/>begin\ =\ TEMPLATE(begin,\ T);}
+\DoxyCodeLine{00114\ \ \ \ \ new\_vector-\/>capacity\ =\ TEMPLATE(capacity,\ T);}
+\DoxyCodeLine{00115\ \ \ \ \ new\_vector-\/>clear\ =\ TEMPLATE(clear,\ T);}
+\DoxyCodeLine{00116\ \ \ \ \ new\_vector-\/>data\ =\ TEMPLATE(data,\ T);}
+\DoxyCodeLine{00117\ \ \ \ \ new\_vector-\/>emplace\ =\ TEMPLATE(emplace,\ T);}
+\DoxyCodeLine{00118\ \ \ \ \ new\_vector-\/>empty\ =\ TEMPLATE(empty,\ T);}
+\DoxyCodeLine{00119\ \ \ \ \ new\_vector-\/>end\ =\ TEMPLATE(end,\ T);}
+\DoxyCodeLine{00120\ \ \ \ \ new\_vector-\/>erase\ =\ TEMPLATE(erase,\ T);}
+\DoxyCodeLine{00121\ \ \ \ \ new\_vector-\/>front\ =\ TEMPLATE(front,\ T);}
+\DoxyCodeLine{00122\ \ \ \ \ new\_vector-\/>insert\ =\ TEMPLATE(insert,\ T);}
+\DoxyCodeLine{00123\ \ \ \ \ new\_vector-\/>pop\_back\ =\ TEMPLATE(pop\_back,\ T);}
+\DoxyCodeLine{00124\ \ \ \ \ new\_vector-\/>pop\_front\ =\ TEMPLATE(pop\_front,\ T);}
+\DoxyCodeLine{00125\ \ \ \ \ new\_vector-\/>print\ =\ TEMPLATE(print,\ T);}
+\DoxyCodeLine{00126\ \ \ \ \ new\_vector-\/>push\_back\ =\ TEMPLATE(push\_back,\ T);}
+\DoxyCodeLine{00127\ \ \ \ \ new\_vector-\/>push\_front\ =\ TEMPLATE(push\_front,\ T);}
+\DoxyCodeLine{00128\ \ \ \ \ new\_vector-\/>reserve\ =\ TEMPLATE(reserve,\ T);}
+\DoxyCodeLine{00129\ \ \ \ \ new\_vector-\/>resize\ =\ TEMPLATE(resize,\ T);}
+\DoxyCodeLine{00130\ \ \ \ \ new\_vector-\/>size\ =\ TEMPLATE(size,\ T);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ new\_vector;}
+\DoxyCodeLine{00133\ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{static}\ T\ TEMPLATE(at,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{00136\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ assert(index\ <\ (*self)-\/>\_\_private.\_\_size\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ TEMPLATE(vector,\ T)\ ::\ Index\ out\ of\ range"{}});}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{return}\ (*self)-\/>\_\_private.\_\_data[index];}
+\DoxyCodeLine{00140\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{static}\ T\ TEMPLATE(back,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00143\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ (*self)-\/>\_\_private.\_\_data[(*self)-\/>\_\_private.\_\_size\ -\/\ 1];}
+\DoxyCodeLine{00145\ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{static}\ T\ *TEMPLATE(begin,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00148\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{return}\ (*self)-\/>\_\_private.\_\_data;}
+\DoxyCodeLine{00150\ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ TEMPLATE(capacity,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00153\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ (*self)-\/>\_\_private.\_\_allocated\_size;}
+\DoxyCodeLine{00155\ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(clear,\ T)(TEMPLATE(vector,\ T)\ **\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00158\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ free((*self)-\/>\_\_private.\_\_data);}
+\DoxyCodeLine{00160\ \ \ \ \ (*self)-\/>\_\_private.\_\_size\ =\ 0;}
+\DoxyCodeLine{00161\ \ \ \ \ (*self)-\/>\_\_private.\_\_allocated\_size\ =\ 0;}
+\DoxyCodeLine{00162\ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{static}\ T\ *TEMPLATE(data,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00165\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{return}\ (*self)-\/>\_\_private.\_\_data;}
+\DoxyCodeLine{00167\ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(emplace,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index,\ \textcolor{keyword}{const}\ T\ value)}
+\DoxyCodeLine{00170\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ assert(index\ <\ (*self)-\/>\_\_private.\_\_size\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ TEMPLATE(vector,\ T)\ ::\ Index\ out\ of\ range"{}});}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ (*self)-\/>\_\_private.\_\_data[index]\ =\ value;}
+\DoxyCodeLine{00174\ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ TEMPLATE(empty,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00177\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ (*self)-\/>\_\_private.\_\_size\ ==\ 0;}
+\DoxyCodeLine{00179\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{keyword}{static}\ T\ *TEMPLATE(end,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00182\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{return}\ (*self)-\/>\_\_private.\_\_data\ +\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1;}
+\DoxyCodeLine{00184\ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(erase,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{00187\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ assert(index\ <\ (*self)-\/>\_\_private.\_\_size\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ TEMPLATE(vector,\ T)\ ::\ Index\ out\ of\ range"{}});}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ 0)}
+\DoxyCodeLine{00191\ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ TEMPLATE(pop\_front,\ T)(self);}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (index\ ==\ (*self)-\/>\_\_private.\_\_size)}
+\DoxyCodeLine{00196\ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ TEMPLATE(pop\_back,\ T)(self);}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ memmove((*self)-\/>\_\_private.\_\_data\ +\ index,\ (*self)-\/>\_\_private.\_\_data\ +\ index\ +\ 1,\ ((*self)-\/>\_\_private.\_\_size\ -\/\ index)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00202\ \ \ \ \ -\/-\/(*self)-\/>\_\_private.\_\_size;}
+\DoxyCodeLine{00203\ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{keyword}{static}\ T\ TEMPLATE(front,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00206\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{return}\ (*self)-\/>\_\_private.\_\_data[0];}
+\DoxyCodeLine{00208\ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(insert,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ before,\ \textcolor{keyword}{const}\ T\ value)}
+\DoxyCodeLine{00211\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ assert(before\ <\ (*self)-\/>\_\_private.\_\_size\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ TEMPLATE(vector,\ T)\ ::\ Index\ out\ of\ range"{}});}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{if}\ (before\ ==\ 0)}
+\DoxyCodeLine{00215\ \ \ \ \ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ TEMPLATE(push\_front,\ T)(self,\ value);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (before\ ==\ (*self)-\/>\_\_private.\_\_size)}
+\DoxyCodeLine{00220\ \ \ \ \ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ TEMPLATE(push\_front,\ T)(self,\ value);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*self)-\/>\_\_private.\_\_size\ ==\ (*self)-\/>\_\_private.\_\_allocated\_size)}
+\DoxyCodeLine{00226\ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ (*self)-\/>\_\_private.\_\_data\ =\ \ (T*)realloc((*self)-\/>\_\_private.\_\_data,\ ((*self)-\/>\_\_private.\_\_size\ +\ 1)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ assert((*self)-\/>\_\_private.\_\_data\ !=\ \ NULL\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ TEMPLATE(vector,\ T)\ ::\ Memory\ couldn't\ be\ allocated"{}});}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ ++(*self)-\/>\_\_private.\_\_allocated\_size;}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ memmove((*self)-\/>\_\_private.\_\_data\ +\ before\ +\ 1,\ (*self)-\/>\_\_private.\_\_data\ +\ before,\ ((*self)-\/>\_\_private.\_\_size\ -\/\ before)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ (*self)-\/>\_\_private.\_\_data[before]\ =\ value;}
+\DoxyCodeLine{00235\ \ \ \ \ ++(*self)-\/>\_\_private.\_\_size;}
+\DoxyCodeLine{00236\ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(pop\_back,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00239\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ -\/-\/(*self)-\/>\_\_private.\_\_size;}
+\DoxyCodeLine{00241\ \}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(pop\_front,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00244\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ memmove((*self)-\/>\_\_private.\_\_data,\ (*self)-\/>\_\_private.\_\_data\ +\ 1,\ ((*self)-\/>\_\_private.\_\_size\ -\/\ 1)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00246\ \ \ \ \ -\/-\/(*self)-\/>\_\_private.\_\_size;}
+\DoxyCodeLine{00247\ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(print,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00250\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ printf(\textcolor{stringliteral}{"{}vector\ \{\ "{}});}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*self)-\/>\_\_private.\_\_size\ >\ 0)}
+\DoxyCodeLine{00253\ \ \ \ \ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00255\ \#ifdef\ CHAR\_VECTOR}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%hhd,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%hhd\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_CHAR\_VECTOR}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%hhu,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%hhu\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#ifdef\ SHORT\_VECTOR}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%hd,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%hd\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_SHORT\_VECTOR}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%hu,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%hu\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#ifdef\ INT\_VECTOR}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_INT\_VECTOR}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%u,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%u\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#ifdef\ LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%ld,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%ld\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%lu,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%lu\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#ifdef\ LONG\_LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%lld,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%lld\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_LONG\_LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%llu,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%llu\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#ifdef\ FLOAT\_VECTOR}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%f,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%f\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#ifdef\ DOUBLE\_VECTOR}}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%f,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%f\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#ifdef\ LONG\_DOUBLE\_VECTOR}}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%Lf,\ "{}},\ TEMPLATE(at,\ T)(self,\ i));}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%Lf\ \}\(\backslash\)n"{}},\ TEMPLATE(at,\ T)(self,\ (*self)-\/>\_\_private.\_\_size\ -\/\ 1));}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00307\ \ \ \ \ \}}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00309\ \ \ \ \ \{}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\}\(\backslash\)n"{}});}
+\DoxyCodeLine{00311\ \ \ \ \ \}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ printf(\textcolor{stringliteral}{"{}size:\ \%d\(\backslash\)n"{}},\ (*self)-\/>\_\_private.\_\_size);}
+\DoxyCodeLine{00314\ \ \ \ \ printf(\textcolor{stringliteral}{"{}allocated\_size:\ \%d\(\backslash\)n"{}},\ (*self)-\/>\_\_private.\_\_allocated\_size);}
+\DoxyCodeLine{00315\ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(push\_back,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ T\ value)}
+\DoxyCodeLine{00318\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*self)-\/>\_\_private.\_\_size\ ==\ (*self)-\/>\_\_private.\_\_allocated\_size)}
+\DoxyCodeLine{00320\ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ (*self)-\/>\_\_private.\_\_data\ =\ \ (T*)realloc((*self)-\/>\_\_private.\_\_data,\ ((*self)-\/>\_\_private.\_\_allocated\_size\ +\ 1)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ assert((*self)-\/>\_\_private.\_\_data\ !=\ NULL\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ TEMPLATE(vector,\ T)\ ::\ Memory\ couldn't\ be\ allocated"{}});}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ ++(*self)-\/>\_\_private.\_\_allocated\_size;}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ (*self)-\/>\_\_private.\_\_data[(*self)-\/>\_\_private.\_\_size]\ =\ value;}
+\DoxyCodeLine{00327\ \ \ \ \ ++(*self)-\/>\_\_private.\_\_size;}
+\DoxyCodeLine{00328\ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(push\_front,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ T\ value)}
+\DoxyCodeLine{00331\ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*self)-\/>\_\_private.\_\_size\ ==\ (*self)-\/>\_\_private.\_\_allocated\_size)}
+\DoxyCodeLine{00333\ \ \ \ \ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ (*self)-\/>\_\_private.\_\_data\ =\ \ (T*)realloc((*self)-\/>\_\_private.\_\_data,\ ((*self)-\/>\_\_private.\_\_allocated\_size\ +\ 1)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ assert((*self)-\/>\_\_private.\_\_data\ !=\ NULL\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ TEMPLATE(vector,\ T)\ ::\ Memory\ couldn't\ be\ allocated"{}});}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ ++(*self)-\/>\_\_private.\_\_allocated\_size;}
+\DoxyCodeLine{00337\ \ \ \ \ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ memmove((*self)-\/>\_\_private.\_\_data\ +\ 1,\ (*self)-\/>\_\_private.\_\_data,\ (*self)-\/>\_\_private.\_\_size\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ (*self)-\/>\_\_private.\_\_data[0]\ =\ value;}
+\DoxyCodeLine{00342\ \ \ \ \ ++(*self)-\/>\_\_private.\_\_size;}
+\DoxyCodeLine{00343\ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(reserve,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ res\_size)}
+\DoxyCodeLine{00346\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ (*self)-\/>\_\_private.\_\_data\ =\ \ (T*)realloc((*self)-\/>\_\_private.\_\_data,\ ((*self)-\/>\_\_private.\_\_allocated\_size\ +\ res\_size)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00348\ \ \ \ \ (*self)-\/>\_\_private.\_\_allocated\_size\ +=\ res\_size;}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \ \ assert((*self)-\/>\_\_private.\_\_data\ !=\ NULL\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ TEMPLATE(vector,\ T)\ ::\ Memory\ couldn't\ be\ allocated"{}});}
+\DoxyCodeLine{00351\ \}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TEMPLATE(resize,\ T)(TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ size)}
+\DoxyCodeLine{00354\ \{}
+\DoxyCodeLine{00355\ \ \ \ \ (*self)-\/>\_\_private.\_\_data\ =\ (T*)realloc((*self)-\/>\_\_private.\_\_data,\ size\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00356\ \ \ \ \ (*self)-\/>\_\_private.\_\_allocated\_size\ =\ size;}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*self)-\/>\_\_private.\_\_size\ >\ (*self)-\/>\_\_private.\_\_allocated\_size)}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ (*self)-\/>\_\_private.\_\_size\ =\ (*self)-\/>\_\_private.\_\_allocated\_size;}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ assert((*self)-\/>\_\_private.\_\_data\ !=\ NULL\ \&\&\ \textcolor{stringliteral}{"{}ERROR\ ::\ TEMPLATE(vector,\ T)\ ::\ Memory\ couldn't\ be\ allocated"{}});}
+\DoxyCodeLine{00361\ \}}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ TEMPLATE(size,\ T)(\textcolor{keyword}{const}\ TEMPLATE(vector,\ T)\ *\textcolor{keyword}{const}\ *\textcolor{keyword}{const}\ self)}
+\DoxyCodeLine{00364\ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordflow}{return}\ (*self)-\/>\_\_private.\_\_size;}
+\DoxyCodeLine{00366\ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ T\ //}}
+
+\end{DoxyCode}

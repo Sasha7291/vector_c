@@ -1,0 +1,56 @@
+\chapter{VECTOR 1.0.0}
+\hypertarget{index}{}\label{index}\index{VECTOR 1.0.0@{VECTOR 1.0.0}}
+Заголовочный файл, который необходимо включать в проект для вызова структуры vector и её методов.
+
+Заголовочный файл, который необходимо включать в проект для вызова структуры vector и её методов.   
+
+\begin{DoxyAuthor}{Author}
+Sasha729 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10.\+05.\+2024
+\end{DoxyDate}
+Данная библиотека реализует структуру vector для всех стандартных типов языка C -\/ аналог версии стандарта C++11 $<$vector$>$. Для включения создания vector необходимого типа \doxylink{vector_8h}{vector.\+h} должен быть включен в файл проекта следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ <TYPENAME>\_VECTOR}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+
+\end{DoxyCode}
+
+
+Структура будет иметь имя vector\+\_\+$<$typename$>$, методы создания и удаления init\+\_\+vector\+\_\+$<$typename$>$() и destruct\+\_\+vector\+\_\+$<$typename$>$().
+
+Если необходимо включить vector для нескольких типов\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ <TYPENAME\_1>\_VECTOR}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ <TYPENAME\_2>\_VECTOR}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+
+
+Доступные типы данных и соответсвующие им макросы и псевдонимы типов ($<$\+TYPENAME$>$\+\_\+\+VECTOR и $<$typename$>$, соответсвенно)\+:
+\begin{DoxyEnumerate}
+\item char, CHAR\+\_\+\+VECTOR, char
+\item unsigned char, UNSIGNED\+\_\+\+CHAR\+\_\+\+VECTOR, uchar
+\item signed char, SIGNED\+\_\+\+CHAR\+\_\+\+VECTOR, char
+\item short, SHORT\+\_\+\+VECTOR, short
+\item unsigned short, UNSIGNED\+\_\+\+SHORT\+\_\+\+VECTOR, ushort
+\item int, INT\+\_\+\+VECTOR, int
+\item unsigned int, UNSIGNED\+\_\+\+INT\+\_\+\+VECTOR, uint
+\item long int, LONG\+\_\+\+INT\+\_\+\+VECTOR, long
+\item unsigned int, UNSIGNED\+\_\+\+LONG\+\_\+\+INT\+\_\+\+VECTOR, ulong
+\item long long int, LONG\+\_\+\+LONG\+\_\+\+INT\+\_\+\+VECTOR, longlong
+\item unsigned long long int, UNSIGNED\+\_\+\+LONG\+\_\+\+LONG\+\_\+\+INT\+\_\+\+VECTOR, ulonglong
+\item float, FLOAT\+\_\+\+VECTOR, float
+\item double, DOUBLE\+\_\+\+VECTOR, double
+\item long double, LONG\+\_\+\+DOUBLE\+\_\+\+VECTOR, ldouble
+\end{DoxyEnumerate}
+
+Можно добавлять собственные типы данных, однако стоит учитывать, что vector не очищает память внутри объектов, которые в находятся, он удаляет лишь сами объекты, поэтому требуется использовать дополнительную очитку либо, если у объекта имеется деструктор вида void destruct\+\_\+object($<$typename$>$\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}), можно вызвать функцию destruct\+\_\+vector\+\_\+with\+\_\+object\+\_\+$<$typename$>$() и передать в неё деструктор объекта. Также для использования метода print необходимо его также модифицировать и добавить в отдельную ветвь условной компиляции. 

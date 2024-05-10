@@ -1,0 +1,22 @@
+\doxysection{vector\+\_\+template.\+h File Reference}
+\hypertarget{vector__template_8h}{}\label{vector__template_8h}\index{vector\_template.h@{vector\_template.h}}
+
+
+Заголовочный файл, который содержит объявление структуры vector и шаблонную реализацию его методов.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Заголовочный файл, который содержит объявление структуры vector и шаблонную реализацию его методов. 
+
+\begin{DoxyAuthor}{Author}
+Sasha729 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10.\+05.\+2024
+\end{DoxyDate}
+Заголовочный файл, который содержит объявление структуры vector и шаблонную реализацию его методов. Можно добавлять собственные типы данных, однако стоит учитывать, что vector не очищает память внутри объектов, которые в находятся, он удаляет лишь сами объекты, поэтому требуется использовать дополнительную очитку либо, если у объекта имеется деструктор вида void destruct\+\_\+object($<$typename$>$\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}), можно вызвать функцию destruct\+\_\+vector\+\_\+with\+\_\+object\+\_\+$<$typename$>$() и передать в неё деструктор объекта. Также для использования метода print необходимо его также модифицировать и добавить в отдельную ветвь условной компиляции. 

@@ -1,0 +1,110 @@
+\doxysection{vector.\+h}
+\hypertarget{vector_8h_source}{}\label{vector_8h_source}\mbox{\hyperlink{vector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#ifdef\ CHAR\_VECTOR}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ T\ char}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#undef\ CHAR\_VECTOR}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_CHAR\_VECTOR}}
+\DoxyCodeLine{00073\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ uchar;}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ T\ uchar}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#undef\ UNSIGNED\_CHAR\_VECTOR}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#ifdef\ SIGNED\_CHAR\_VECTOR}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ T\ char}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#undef\ SIGNED\_CHAR\_VECTOR}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#ifdef\ SHORT\_VECTOR}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ T\ short}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#undef\ SHORT\_VECTOR}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_SHORT\_VECTOR}}
+\DoxyCodeLine{00095\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ ushort;}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ T\ ushort}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#undef\ UNSIGNED\_SHORT\_VECTOR}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#ifdef\ INT\_VECTOR}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ T\ int}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#undef\ INT\_VECTOR}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_INT\_VECTOR}}
+\DoxyCodeLine{00110\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ uint;}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ T\ uint}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#undef\ UNSIGNED\_INT\_VECTOR}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#ifdef\ LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ T\ long}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#undef\ LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00125\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ ulong;}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ T\ ulong}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#undef\ UNSIGNED\_LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#ifdef\ LONG\_LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00133\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ longlong;}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ T\ longlong}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#undef\ LONG\_LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#ifdef\ UNSIGNED\_LONG\_LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00141\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ ulonglong;}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ T\ ulonglong}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#undef\ UNSIGNED\_LONG\_LONG\_INT\_VECTOR}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#ifdef\ FLOAT\_VECTOR}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ T\ float}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#undef\ FLOAT\_VECTOR}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#ifdef\ DOUBLE\_VECTOR}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ T\ double}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#undef\ DOUBLE\_VECTOR}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#ifdef\ LONG\_DOUBLE\_VECTOR}}
+\DoxyCodeLine{00163\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ ldouble}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ T\ ldouble}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__template_8h}{vector\_template.h}}"{}}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#undef\ T}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#undef\ LONG\_DOUBLE\_VECTOR}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
