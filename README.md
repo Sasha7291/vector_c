@@ -4,10 +4,8 @@
 
   ## Подключение
   Для включения создания vector необходимого типа vector.h должен быть включен в файл проекта следующим образом:
-  '''
-  #define <TYPENAME>_VECTOR
-  #include "vector.h"
-  '''
+  ''' #define <TYPENAME>_VECTOR
+  #include "vector.h" '''
 
   Структура будет иметь имя vector_<typename>, методы создания и удаления init_vector_<typename>() и destruct_vector_<typename>().
   Если необходимо включить vector для нескольких типов:
