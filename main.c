@@ -15,6 +15,10 @@ int main()
     vec_int->print((const vector_int *const *const)&vec_int);
     vec_float->print((const vector_float *const *const)&vec_float);
 
+    vec_float->insert((vector_float *const *const)&vec_float, 4, 3.2);
+
+    printf("%d\n", vec_float->find_first_of((const vector_float *const *const)&vec_float, 3.2));
+
     destruct_vector_longlong(&vec_longlong);
     destruct_vector_int(&vec_int);
     destruct_vector_float(&vec_float);

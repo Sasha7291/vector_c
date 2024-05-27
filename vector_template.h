@@ -2,14 +2,12 @@
     \file
     \brief Заголовочный файл, который содержит объявление структуры vector и шаблонную реализацию его методов.
     \author Sasha729
-    \version 1.0.0
-    \date 10.05.2024
+    \version 1.0.1
+    \date 27.05.2024
 
     Заголовочный файл, который содержит объявление структуры vector и шаблонную реализацию его методов.
     Можно добавлять собственные типы данных, однако стоит учитывать, что vector не очищает память внутри объектов, которые в находятся, он удаляет лишь сами объекты,
-    поэтому требуется использовать дополнительную очитку либо, если у объекта имеется деструктор вида void destruct_object(<typename>**), можно вызвать функцию
-    destruct_vector_with_object_<typename>() и передать в неё деструктор объекта. Также для использования метода print необходимо его также модифицировать и добавить
-    в отдельную ветвь условной компиляции.
+    поэтому требуется использовать дополнительную очитку памяти.
 */
 #ifdef T
 
@@ -42,6 +40,8 @@ struct TEMPLATE(__vector, T)
     int (*empty)(const TEMPLATE(vector, T) *const *const);                              ///< проверяет, не пустой ли вектор
     T *(*end)(const TEMPLATE(vector, T) *const *const);                                 ///< возвращает указатель на последний элемент
     void (*erase)(TEMPLATE(vector, T) *const *const, const unsigned int);               ///< удаляет элемент по индексу
+    int (*find_first_of)(const TEMPLATE(vector, T) *const *const, const T);             ///< возвращает индекс первого вхождения элемента
+    int (*find_last_of)(const TEMPLATE(vector, T) *const *const, const T);              ///< возвращает индекс последнего вхождения элемента
     T (*front)(const TEMPLATE(vector, T) *const *const);                                ///< возвращает первый элемент
     void (*insert)(TEMPLATE(vector, T) *const *const, const unsigned int, const T);     ///< вставляет элемент перед индексом
     void (*pop_back)(TEMPLATE(vector, T) *const *const);                                ///< удаляет элемент из конца
@@ -64,6 +64,8 @@ static void TEMPLATE(emplace, T)(TEMPLATE(vector, T) *const *const self, const u
 static int TEMPLATE(empty, T)(const TEMPLATE(vector, T) *const *const self);
 static T *TEMPLATE(end, T)(const TEMPLATE(vector, T) *const *const self);
 static void TEMPLATE(erase, T)(TEMPLATE(vector, T) *const *const self, const unsigned int index);
+static int TEMPLATE(find_first_of, T)(const TEMPLATE(vector, T) *const *const self, const T value);
+static int TEMPLATE(find_last_of, T)(const TEMPLATE(vector, T) *const *const self, const T value);
 static T TEMPLATE(front, T)(const TEMPLATE(vector, T) *const *const self);
 static void TEMPLATE(insert, T)(TEMPLATE(vector, T) *const *const self, const unsigned int before, const T value);
 static void TEMPLATE(pop_back, T)(TEMPLATE(vector, T) *const *const self);
@@ -77,17 +79,6 @@ static unsigned int TEMPLATE(size, T)(const TEMPLATE(vector, T) *const *const se
 
 void TEMPLATE(destruct_vector, T)(TEMPLATE(vector, T) **self)
 {
-    if ((*self)->__private.__allocated_size > 0)
-        free((*self)->__private.__data);
-    free(*self);
-
-    *self = NULL;
-}
-
-void TEMPLATE(destruct_vector_with_object, T)(TEMPLATE(vector, T) **self, void (*destruct_object)(T**))
-{
-    for (unsigned int i; i < (*self)->__private.__allocated_size; ++i)
-        destruct_object((*self)->__private.__data[i]);
     if ((*self)->__private.__allocated_size > 0)
         free((*self)->__private.__data);
     free(*self);
@@ -120,6 +111,8 @@ TEMPLATE(vector, T) *TEMPLATE(init_vector, T)(const unsigned int init_size, cons
     new_vector->erase = TEMPLATE(erase, T);
     new_vector->front = TEMPLATE(front, T);
     new_vector->insert = TEMPLATE(insert, T);
+    new_vector->find_first_of = TEMPLATE(find_first_of, T);
+    new_vector->find_last_of = TEMPLATE(find_last_of, T);
     new_vector->pop_back = TEMPLATE(pop_back, T);
     new_vector->pop_front = TEMPLATE(pop_front, T);
     new_vector->print = TEMPLATE(print, T);
@@ -200,6 +193,26 @@ static void TEMPLATE(erase, T)(TEMPLATE(vector, T) *const *const self, const uns
 
     memmove((*self)->__private.__data + index, (*self)->__private.__data + index + 1, ((*self)->__private.__size - index) * sizeof(T));
     --(*self)->__private.__size;
+}
+
+int TEMPLATE(find_first_of, T)(const TEMPLATE(vector, T) *const *const self, const T value)
+{
+    unsigned int i;
+    for (i = 0; i < (*self)->size(self); ++i)
+        if ((*self)->at(self, i) == value)
+            return i;
+
+    return -1;
+}
+
+int TEMPLATE(find_last_of, T)(const TEMPLATE(vector, T) *const *const self, const T value)
+{
+    unsigned int i;
+    for (i = (*self)->size(self) - 1; i >= 0; --i)
+        if ((*self)->at(self, i) == value)
+            return i;
+
+    return -1;
 }
 
 static T TEMPLATE(front, T)(const TEMPLATE(vector, T) *const *const self)
